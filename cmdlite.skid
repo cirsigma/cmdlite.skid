@@ -1489,7 +1489,7 @@ local AntiLogs = false
 
 -- Noob detector and welcome/leave message
 local noobdetect = true
-local welcomemsg = true
+local welcomemsg = false
 
 -- anti announcer (antigear/anticrash/antipaint/antigb/antiattach2/antiperi/antiraygun...)
 local crash_an = false
@@ -12564,7 +12564,7 @@ function onPlayerAdded(player)
 
   		if table.find(rkick_on_sight, player.Name) then
                 	if welcomemsg == true then 
-			--	Chat("h \n\n\n Rocket kicking "..player.Name.." as they are blacklisted. \n\n\n")
+				Chat("h \n\n\n Rocket kicking "..player.Name.." as they are blacklisted. \n\n\n")
 			end
 			print(player.Name.." joined the server. They are being rocket kicked as they were on the rkick_on_sight list.")
 			Remind(player.Name.." joined the server. They are being rocket kicked as they were on the rkick_on_sight list.")
@@ -12574,7 +12574,7 @@ function onPlayerAdded(player)
 
     		if table.find(suser_on_sight, player.Name) then
                 	if welcomemsg == true then
-			--	Chat("h \n\n\n Lagging "..player.Name.." with cars as they are blacklisted. \n\n\n")
+				Chat("h \n\n\n Lagging "..player.Name.." with cars as they are blacklisted. \n\n\n")
 			end
 			print(player.Name.." joined the server. They are being lagged with cars as they were on the suser_on_sight list.")
 			Remind(player.Name.." joined the server. They are being lagged with cars as they were on the suser_on_sight list.")
@@ -12586,7 +12586,7 @@ function onPlayerAdded(player)
 
     		if table.find(mkick_on_sight, player.Name) then
                		if welcomemsg == true then
-				--Chat("h \n\n\n Message kicking "..player.Name.." as they are blacklisted. \n\n\n")
+				Chat("h \n\n\n Message kicking "..player.Name.." as they are blacklisted. \n\n\n")
 			end
 			print(player.Name.." joined the server. They are being message kicked as they were on the mkick_on_sight list.")
 			Remind(player.Name.." joined the server. They are being message kicked as they were on the mkick_on_sight list.")
@@ -12597,7 +12597,7 @@ function onPlayerAdded(player)
 
 		if table.find(hatkick_on_sight, player.Name) then
         		if welcomemsg == true then 
-				--Chat("h \n\n\n Hat kicking "..player.Name.." as they are blacklisted. \n\n\n")
+				Chat("h \n\n\n Hat kicking "..player.Name.." as they are blacklisted. \n\n\n")
 			end
 			print(player.Name.." joined the server. They are being hat kicked as they were on the hatkick_on_sight list.")
 			Remind(player.Name.." joined the server. They are being hat kicked as they were on the hatkick_on_sight list.")
@@ -12612,7 +12612,7 @@ function onPlayerAdded(player)
 
     		if table.find(crash_on_sight, player.Name) then
 		        if welcomemsg == true then
-        			--Chat("h \n\n\n Server automatically crashed due to blacklisted user ("..player.Name..") joining. \n\n\n")
+        			Chat("h \n\n\n Server automatically crashed due to blacklisted user ("..player.Name..") joining. \n\n\n")
 			end
         		print(player.Name.." joined the server. Server was automatically crashed as they are blacklisted.")
 			Remind(player.Name.." joined the server. Server was automatically crashed as they are blacklisted.")
@@ -12623,7 +12623,7 @@ function onPlayerAdded(player)
     		if player.AccountAge < newlen == true and newplrautoslock == true then
 			if not table.find(whitelist, player.Name) and not table.find(pwl, player.Name) then
 				if welcomemsg == true then
-         				--Chat("h \n\n\n Automatically banned "..player.Name.." for being on an account under the account age limit. \n\n\n")
+         				Chat("h \n\n\n Automatically banned "..player.Name.." for being on an account under the account age limit. \n\n\n")
 				end
          			print(player.Name.." joined the server. They were auto-banned for being under the account age limit.")
 				Remind(player.Name.." joined the server. They were auto-banned for being under the account age limit.")
@@ -12654,13 +12654,13 @@ function onPlayerAdded(player)
 
 		if welcomemsg == true then
         		if table.find(whitelist, player.Name) then
-         			--Chat("h \n\n\n Welcome to the server, " .. player.Name .. ". You are whitelisted from serverlocks! \n\n\n")
+         			Chat("h \n\n\n Welcome to the server, " .. player.Name .. ". You are whitelisted from serverlocks! \n\n\n")
 			elseif table.find(FAdmins, player.Name) then
 	         		--Chat("h \n\n\n Welcome to the server, " .. player.Name .. ". You have been given free admin! \n\n\n")
 			elseif alladmin then
-	         		--Chat("h \n\n\n Welcome to the server, " .. player.Name .. ". This server has free admin! \n\n\n")
+	         		Chat("h \n\n\n Welcome to the server, " .. player.Name .. ". This server has free admin! \n\n\n")
 			else
-	         		--Chat("h \n\n\n Welcome to the server, " .. player.Name .. ". \n\n\n")
+	         		Chat("h \n\n\n Welcome to the server, " .. player.Name .. ". \n\n\n")
 			end
 		end
 	
@@ -12675,7 +12675,7 @@ function onPlayerAdded(player)
     end
 
     if table.find(atprogperms, player.Name) then
-			-- Chat("h \n\n\n ".. player.Name .. " [KohlsLite Dev] joined the server! \n\n\n")
+		 Chat("h \n\n\n ".. player.Name .. " [KohlsLite Dev] joined the server! \n\n\n")
 			print(player.Name.." [KohlsLite Dev] joined the server.")
         		Remind(player.Name.." from [ATPROG PERMS] joined the server.")
     end
@@ -12684,7 +12684,7 @@ end
 function onPlayerLeaving(player)
     task.wait(0)
     if welcomemsg == true then
-           --  Chat("h \n\n\n Goodbye, " .. player.Name .. ". \n\n\n")
+            Chat("h \n\n\n Goodbye, " .. player.Name .. ". \n\n\n")
              print(player.Name.." left the server.")
              Remind(player.Name.." left the server.")
     end
@@ -15277,29 +15277,15 @@ print("Loaded in " .. Stats.loadedtime .. "ms.")
 
 -- KohlsLite Tags - Created by atprog
 local OWNER = {
-	"ScriptingProgrammer", 
-	"me_123eq", 
-	"s_pisafurry", 
-	"kohlslitedev", 
-	"IceStuds", 
-        "yeyeyeweweweye"
+	"safiaojfaofjai"
 }
 
 local DEVELOPER = {
-   "atprog",
- --  "IceStuds" (avoid overlap)
+ "asdhaisodhasoidh"
 }
 
 local ADMIN = {
-    "decryptionites",
-    "minecraftgamer2012YT",
-    "clydekash",
-    "ripcxo",
-    "grimAuxiliatrix",
-    "undertaker629",
-   -- "dawninja21",
-  --  "dawninja21alt",
-    "jjjuuikjjikkju"
+"asdjaoaopdja"
 }
 
 -- Loading (from pqko and others) --
@@ -15386,22 +15372,11 @@ end
 
 -- KohlsLite Blacklist --
 local unexecuteables = {
-	"Temporary123516",
-	"XxSmurfXxSmurfXx",
-	"kjnjsknsdgkgnfgkjknf",
-	"NOTAVIRTUALMACHINE15"
+	"asdihadjaiad"
 }
 
 local mentalhospital = {
-	"aliihsan12345",
-	"aliihsan12345Bloxy",
-	"Unknown35864",
-	"UnknownHasComeBack",
-	"OhMyAlt000",
-	"Roblox_girlsfree",
-	"aliihsan12345isafurry", -- DID LIL BRO COPY S_PISAFURRY ???!!!
-    	"IIIdev",
-    	"ihateyou"
+"asdhaidhiahdad"
 }
 
 if table.find(unexecuteables, game.Players.LocalPlayer.Name) then
@@ -15586,7 +15561,7 @@ if getgenv().kohlsgui then
                     "This script was created by TS2021 (ScriptingProgrammer).",
 		    " ",
 		    "To see the command list:",
-		    "1. Chat .kcmds",
+		    "1. Chat sigma/kcmds",
 		    "2. Chat /console",
 		    " ",
 		    "Have fun using my script!"
